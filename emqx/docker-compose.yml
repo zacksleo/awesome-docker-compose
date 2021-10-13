@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  emqx:
+    image: emqx/emqx:v3.2.7
+#    volumes:
+#      - ./data/etc:/opt/emqx/etc
+#      - ./data/lib:/opt/emqx/lib
+#      - ./data/data:/opt/emqx/data
+#      - ./data/log:/opt/emqx/log
+    ports:
+      - 1883:1883
+      - 8083:8083
+      - 8883:8883
+      - 8084:8084
+      - 18083:18083
+    restart: always

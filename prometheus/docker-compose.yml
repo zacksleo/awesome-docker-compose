@@ -1,0 +1,14 @@
+version: '2'
+services:
+  app:
+      image: prom/prometheus
+      container_name: prometheus
+      expose:
+          - "9090"
+      ports:
+          - "9090:9090"
+      environment:
+          TZ: Asia/Shanghai
+      volumes:
+          - ./config:/etc/prometheus
+      restart: always

@@ -1,0 +1,14 @@
+version: "2"
+services:
+  rabbitmq:
+    image: rabbitmq:management
+    environment:
+      TZ: Asia/Shanghai
+      RABBITMQ_DEFAULT_USER: root
+      RABBITMQ_DEFAULT_PASS: developerPa55
+    volumes:
+      - ./data:/var/lib/rabbitmq/mnesia
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    restart: always
