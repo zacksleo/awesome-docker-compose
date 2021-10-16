@@ -2,7 +2,7 @@ version: '2'
 services:
 
     mysql:
-        image: mysql:5.6
+        image: mysql:8
         expose:
             - "3306"
         ports:
@@ -12,6 +12,7 @@ services:
             MYSQL_DATABASE: web
             MYSQL_USER: web
             MYSQL_PASSWORD: web
+        command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci','--default-authentication-plugin=mysql_native_password']
         volumes:
             - ./data/mysql:/var/lib/mysql
         restart: always
