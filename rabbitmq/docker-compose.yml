@@ -5,7 +5,7 @@ services:
     environment:
       TZ: Asia/Shanghai
       RABBITMQ_DEFAULT_USER: root
-      RABBITMQ_DEFAULT_PASS: developerPa55
+      RABBITMQ_DEFAULT_PASS: root
     volumes:
       - ./data:/var/lib/rabbitmq/mnesia
     ports:
