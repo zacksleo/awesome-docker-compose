@@ -9,10 +9,10 @@ docker-compose up
 服务运行起来后，先拷贝文件
 
 ```bash
-docker cp emqx:/opt/emqx/etc ~/emqx/etc
-docker cp emqx:/opt/emqx/lib ~/emqx/lib
-docker cp emqx:/opt/emqx/data ~/emqx/data
-docker cp emqx:/opt/emqx/log ~/emqx/log
+docker cp emqx:/opt/emqx/etc ./data/etc
+docker cp emqx:/opt/emqx/lib ./data/lib
+docker cp emqx:/opt/emqx/data ./data/data
+docker cp emqx:/opt/emqx/log ./data/log
 ```
 
 修改主题订阅权限
@@ -38,8 +38,8 @@ docker cp emqx:/opt/emqx/log ~/emqx/log
 修改文件权限
 
 ```bash
-chown -R 1000:1000 data etc lib log
-chmod -R 775 data etc lib log
+chown -R 1000:1000 ./data
+chmod -R 775 ./data
 ```
 
 配置 volumes
@@ -81,12 +81,12 @@ cat com.oneiotworld.qj.cgw.utils.MqttApiUtils.java
 ```yaml
 mqtt:
   api:
-    url: http://10.1.32.11:18083/api/v3
+    url: http://{ip}:18083/api/v3
 ```
 
 ## 账号配置
 
-1. 登录 emqx-dashboard, 如 http://10.1.32.11:18083
+1. 登录 emqx-dashboard, 如 http://{ip}:18083, 默认账号密码 admin/public
 2. 修改 admin 账号密码
 3. 在用户管理，为 CGW 模块配置一个账号密码, 并配置 application-dev.yaml
 注意，因 3.7 版本添加 App 无效，这里改用添加账号
@@ -94,7 +94,7 @@ mqtt:
 ```diff
 mqtt:
   api:
-    url: http://10.1.32.11:18083/api/v3
+    url: http://{ip}:18083/api/v3
 +   appid: appid
 +   appsecret: secret
 ```
