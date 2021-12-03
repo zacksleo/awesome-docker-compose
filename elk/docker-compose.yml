@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  # 日志存储和解析
+  loki:
+    image: grafana/loki
+    container_name: lpg-loki
+    volumes:
+      - ./data/loki:/etc/loki
+    ports:
+      - 3100:3100
+
+  # 日志收集器
+  promtail:
+    image: grafana/promtail
+    container_name: lpg-promtail
+    volumes:
+      # 将需要收集的日志所在目录挂载到promtail容器中
+      - ./data/logs/:/var/log
+      - ./data/promtail:/etc/promtail
+
+  # 日志可视化
+  grafana:
+    image: grafana/grafana
+    container_name: lpg-grafana
+    ports:
+      - 3000:3000
