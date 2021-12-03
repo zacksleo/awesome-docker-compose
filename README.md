@@ -1,5 +1,10 @@
 # awesome-docker-compose
 
+## Install
+
+- [安装docker](./install-docker.md)
+- [安装docker-compose](./install-docker-compose.md)
+
 ## Start
 
 ```bash
