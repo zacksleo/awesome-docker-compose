@@ -13,6 +13,7 @@ services:
             MYSQL_USER: web
             MYSQL_PASSWORD: web
         command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci','--default-authentication-plugin=mysql_native_password']
+        container_name: mysql
         volumes:
             - ./data/mysql:/var/lib/mysql
         restart: always
