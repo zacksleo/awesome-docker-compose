@@ -1,6 +1,7 @@
 version: "2"
 services:
   rabbitmq:
+    container_name: rabbitmq
     image: rabbitmq:management
     environment:
       TZ: Asia/Shanghai
