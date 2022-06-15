@@ -2,7 +2,8 @@ version: "2"
 services:
   rabbitmq:
     container_name: rabbitmq
-    image: rabbitmq:management
+    #image: rabbitmq:management
+    image: heidiks/rabbitmq-delayed-message-exchange
     environment:
       TZ: Asia/Shanghai
       RABBITMQ_DEFAULT_USER: root
