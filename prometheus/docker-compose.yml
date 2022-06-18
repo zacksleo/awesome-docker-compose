@@ -10,5 +10,6 @@ services:
       environment:
           TZ: Asia/Shanghai
       volumes:
-          - ./config:/etc/prometheus
+          - ./prometheus.yml:/etc/prometheus/prometheus.yml
+          - ./data:/prometheus
       restart: always
