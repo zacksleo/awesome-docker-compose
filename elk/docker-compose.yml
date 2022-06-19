@@ -20,8 +20,11 @@ services:
       - ./data/promtail:/etc/promtail
 
   # 日志可视化
+  # sudo chown -R 472:472 grafana/
   grafana:
     image: grafana/grafana
-    container_name: lpg-grafana
+    container_name: grafana
     ports:
       - 3000:3000
+    volumes:
+      - ./grafana:/var/lib/grafana
