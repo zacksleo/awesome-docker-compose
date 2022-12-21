@@ -1,0 +1,16 @@
+version: "2"
+services:
+  rabbitmq:
+    container_name: db2
+    image: ibmcom/db2
+    privileged: true
+    environment:
+      TZ: Asia/Shanghai
+      LICENSE: accept
+      DB2INST1_PASSWORD: root
+      DBNAME: BDC
+    volumes:
+      - ./data:/database
+    ports:
+      - "50000:50000"
+    restart: always
